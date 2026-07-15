@@ -1,7 +1,7 @@
 const openModalButton = document.getElementById("add-new-book");
 const closeModalButton = document.getElementById("cancel-button");
 const submitButton = document.getElementById("submit-button")
-const myModal = document.querySelector("dialog");
+const bookAddingModal = document.querySelector("dialog");
 const bookTitleDisplay = document.getElementsByClassName("book-title-display");
 const bookAuthorDisplay = document.getElementsByClassName("book-autor-display");
 const bookContainer = document.getElementById("library")
@@ -23,7 +23,7 @@ addBookToLibrary("harry potter", "j.k. rowling", "read");
 addBookToLibrary("twilight", "stephenie meyer", "read");
 addBookToLibrary("casual vacancy", "j.k. rowling", "read");
 
-openModalButton.addEventListener("click", () => myModal.showModal());
+openModalButton.addEventListener("click", () => bookAddingModal.showModal());
 
 let html 
 
@@ -46,6 +46,7 @@ submitButton.addEventListener("click", (event) => {
     event.preventDefault();
     const bookTitleFinal = document.getElementById("book-title").value
     const bookAuthorFinal = document.getElementById("book-author").value
+    bookAddingModal.close();
     addBookToLibrary(bookTitleFinal, bookAuthorFinal);
     showBooks();
 });

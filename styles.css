@@ -1,0 +1,9 @@
+#library {
+    display: flex;
+    gap: 30px;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+}
