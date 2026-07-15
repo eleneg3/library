@@ -4,7 +4,8 @@ const submitButton = document.getElementById("submit-button")
 const bookAddingModal = document.querySelector("dialog");
 const bookTitleDisplay = document.getElementsByClassName("book-title-display");
 const bookAuthorDisplay = document.getElementsByClassName("book-autor-display");
-const bookContainer = document.getElementById("library")
+const bookContainer = document.getElementById("library");
+const bookInputForm = document.querySelector("form");
 const myLibrary = [];
 
 function Book(title, author) {
@@ -25,10 +26,8 @@ addBookToLibrary("casual vacancy", "j.k. rowling", "read");
 
 openModalButton.addEventListener("click", () => bookAddingModal.showModal());
 
-let html 
-
 function showBooks() {
-    html = "";
+    let html = "";
     for (let i = 0; i < myLibrary.length; i++) {
         html += `
             <div class="book">
@@ -40,14 +39,18 @@ function showBooks() {
 }
 
 showBooks();
-bookContainer.innerHTML = html;
 
 submitButton.addEventListener("click", (event) => {
     event.preventDefault();
     const bookTitleFinal = document.getElementById("book-title").value
     const bookAuthorFinal = document.getElementById("book-author").value
     bookAddingModal.close();
+    bookInputForm.reset();
     addBookToLibrary(bookTitleFinal, bookAuthorFinal);
     showBooks();
 });
 
+closeModalButton.addEventListener("click", () => {
+    bookInputForm.reset;
+    bookAddingModal.close();
+});

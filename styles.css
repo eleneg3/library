@@ -1,3 +1,16 @@
+#header {
+    height: 100px;
+    background-color: rgb(17, 4, 92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#add-new-book {
+    font-size: 15px;
+    padding: 5px;
+}
+
 #library {
     display: flex;
     gap: 30px;
