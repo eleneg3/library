@@ -22,18 +22,24 @@ function addBookToLibrary(title, author) {
 addBookToLibrary("harry potter", "j.k. rowling", "read");
 addBookToLibrary("twilight", "stephenie meyer", "read");
 addBookToLibrary("casual vacancy", "j.k. rowling", "read");
-console.log(myLibrary);
 
 openModalButton.addEventListener("click", () => myModal.showModal());
 
-let html = '';
-for (let i = 0; i < myLibrary.length; i++) {
-  html += `
-        <div class="book">
-            <p>${myLibrary[i].title}</p>
-            <p>${myLibrary[i].author}</p>
-        </div>`;
+let html 
+
+function showBooks() {
+    html = "";
+    for (let i = 0; i < myLibrary.length; i++) {
+        html += `
+            <div class="book">
+                <p>${myLibrary[i].title}</p>
+                <p>${myLibrary[i].author}</p>
+            </div>`;
+    }
+    bookContainer.innerHTML = html;
 }
+
+showBooks();
 bookContainer.innerHTML = html;
 
 submitButton.addEventListener("click", (event) => {
@@ -41,14 +47,6 @@ submitButton.addEventListener("click", (event) => {
     const bookTitleFinal = document.getElementById("book-title").value
     const bookAuthorFinal = document.getElementById("book-author").value
     addBookToLibrary(bookTitleFinal, bookAuthorFinal);
-    html = "";
-    for (let i = 0; i < myLibrary.length; i++) {
-        html += `
-                <div class="book">
-                    <p>${myLibrary[i].title}</p>
-                    <p>${myLibrary[i].author}</p>
-                </div>`;
-    }
-    bookContainer.innerHTML = html;
+    showBooks();
 });
 
